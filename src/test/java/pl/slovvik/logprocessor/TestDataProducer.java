@@ -22,7 +22,7 @@ import static pl.slovvik.logprocessor.file.FileHelper.*;
 @Slf4j
 public class TestDataProducer {
 
-    private static final String FILE_NAME = "logs.json";
+    public static final String FILE_NAME = "logs.json";
 
     private static final int BATCH_SIZE = 100;
     private final ObjectMapper objectMapper = new ObjectMapper();

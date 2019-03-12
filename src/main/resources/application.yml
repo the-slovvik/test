@@ -14,8 +14,12 @@ spring:
 #        format_sql: true
 #    show-sql: true
 
-logging:
-  level:
-    jdbc.sqlonly: info
+#logging:
+#  level:
+#    root: off
+#    jdbc.sqlonly: info
 
-log.file: logs.json
+log:
+  file: logs.json
+  flag:
+    time: 4

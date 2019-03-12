@@ -5,7 +5,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import pl.slovvik.logprocessor.model.CompletedEvent;
 import pl.slovvik.logprocessor.model.Event;
+import pl.slovvik.logprocessor.repository.CompletedEventRepository;
 import pl.slovvik.logprocessor.repository.EventRepository;
 import pl.slovvik.logprocessor.service.EventLogProcessorService;
 
@@ -19,6 +21,7 @@ public class LogProcessorApplication implements CommandLineRunner {
 
     private final EventLogProcessorService eventLogProcessorService;
     private final EventRepository eventRepository;
+    private final CompletedEventRepository completedEventRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(LogProcessorApplication.class, args);
@@ -38,8 +41,11 @@ public class LogProcessorApplication implements CommandLineRunner {
 //        stop.setFinished(Timestamp.valueOf(LocalDateTime.now()));
 //        eventRepository.save(stop);
 //        log.info("After edit");
-        Iterable<Event> all = eventRepository.findAll();
-        all.forEach(event -> log.info("{}", event));
+//        Iterable<Event> all = eventRepository.findAll();
+//        all.forEach(System.out::println);
+//        Iterable<CompletedEvent> completedEventRepositoryAll = completedEventRepository.findAll();
+//        completedEventRepositoryAll.forEach(System.out::println);
+
     }
 }
 

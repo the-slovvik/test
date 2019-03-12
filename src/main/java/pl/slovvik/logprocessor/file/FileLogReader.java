@@ -16,7 +16,7 @@ import java.util.function.Consumer;
 
 @Slf4j
 @Data
-public class FileReader {
+public class FileLogReader {
 
     private final int batchSize;
 
@@ -24,7 +24,7 @@ public class FileReader {
     private LineIterator lineIterator;
     private ObjectMapper objectMapper = new ObjectMapper();
 
-    public FileReader(int batchSize, File logs) {
+    public FileLogReader(int batchSize, File logs) {
         this.batchSize = batchSize;
         this.logs = logs;
         initLineIterator();
@@ -41,7 +41,7 @@ public class FileReader {
     }
 
     private List<EventLog> readBatch() throws IOException {
-        log.info("Read batch events from log logs");
+        log.info("Read batch events from logs");
         List<EventLog> batch = new ArrayList<>(this.batchSize);
         while (lineIterator.hasNext()) {
             if (batch.size() == batchSize) {

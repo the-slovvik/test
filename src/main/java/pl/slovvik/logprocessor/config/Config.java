@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import pl.slovvik.logprocessor.file.FileReader;
+import pl.slovvik.logprocessor.file.FileLogReader;
 
 import java.io.File;
 
@@ -13,11 +13,11 @@ import java.io.File;
 public class Config {
 
     @Bean
-    FileReader fileReader(
+    FileLogReader fileReader(
             @Value("${log.file}") String filePath,
             @Value("${spring.jpa.properties.hibernate.jdbc.batch_size}") int batchSize) {
         log.info("File to read: {}", filePath);
         log.info("Batch size: {}", batchSize);
-        return new FileReader(batchSize, new File(filePath));
+        return new FileLogReader(batchSize, new File(filePath));
     }
 }

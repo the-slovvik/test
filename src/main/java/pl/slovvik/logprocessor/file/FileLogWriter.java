@@ -16,14 +16,14 @@ import static pl.slovvik.logprocessor.file.FileHelper.creatFile;
 
 @Slf4j
 @Component
-public class FileWriter {
+public class FileLogWriter {
 
     public final static String TEMP_FINISHED_LOG_FILE = "tempFinishedLog.json";
 
     private ObjectMapper objectMapper = new ObjectMapper();
     private File finishedEventLogFile;
 
-    public FileWriter() {
+    public FileLogWriter() {
         this.finishedEventLogFile = creatFile(TEMP_FINISHED_LOG_FILE);
     }
 
